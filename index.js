@@ -28,3 +28,21 @@ orderSetMenu('에그마요', '환타 오렌지');
 주문하신 코드웨잇 멜트, 스프라이트 세트메뉴 나왔습니다!
 주문하신 이탈리안 비엠티, 닥터페퍼 세트메뉴 나왔습니다!
 주문하신 에그마요, 환타 오렌지 세트메뉴 나왔습니다! */
+
+
+// 종류에 따른 출력 소리 변수
+let adultTag = '삑!';
+let teenagerTag = '삑삑!';
+let errorTag = '삑삑삑!';
+let transferTag = '환승입니다.';
+
+// tagCase파라미터를 가지는 tagNotification 함수
+function tagNotification(tagCase) {
+  console.log(tagCase);
+}
+
+// 테스트 코드
+tagNotification(adultTag);  // 삑!
+tagNotification(teenagerTag);  // 삑삑!
+tagNotification(transferTag);  // 환승입니다.
+tagNotification(errorTag);  // 삑삑삑!
