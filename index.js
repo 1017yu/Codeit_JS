@@ -162,3 +162,23 @@ checkPrice('VIP');  // VIP석은 15만원 입니다.
 checkPrice('S');  // S석은 10만원 입니다.
 checkPrice('A');  // A석은 8만원 입니다.
 checkPrice('B');  // VIP, R, S, A 중에서 하나를 선택해 주세요.
+
+
+// 주어진 height에 맞게 '*'로 삼각형을 그려주는 함수 printTriangle
+function printTriangle(height) {
+  let message = '';  // '*'을 담을 변수 message 생성
+  for (let i = 1; i <= height; i++) {  
+    message += '*'  // for문이 반복될 때 마다, '*'의 개수 증가
+    console.log(message);  // 누적된 '*'을 출력
+  }
+}
+
+// 테스트 코드
+console.log('높이: 1');  
+printTriangle(1);
+
+console.log('높이: 3');
+printTriangle(3);
+
+console.log('높이: 5');
+printTriangle(5);
