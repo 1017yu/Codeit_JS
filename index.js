@@ -46,3 +46,119 @@ tagNotification(adultTag);  // 삑!
 tagNotification(teenagerTag);  // 삑삑!
 tagNotification(transferTag);  // 환승입니다.
 tagNotification(errorTag);  // 삑삑삑!
+
+
+// 파라미터 height에 따라 if문을 사용하여 탑승을 제한하는 함수
+function checkHeight(height) {
+  const LIMIT = 140;
+  let passMessage = '탑승이 가능합니다.';
+  let failMessage = '탑승이 불가능합니다.';
+
+  if (height >= LIMIT) {
+    console.log(passMessage);
+  } else {
+    console.log(failMessage);
+  }
+}
+
+
+// 학점 계산기
+function printGrade(midtermScore, finalScore) {
+  let totalScore = midtermScore + finalScore;
+
+  if (totalScore >= 90) {
+    console.log('A');
+  } else if (totalScore >= 80) {
+    console.log('B');
+  } else if (totalScore >= 70) {
+    console.log('C');
+  } else if (totalScore >= 60) {
+    console.log('D');
+  } else {
+    console.log('F');
+  }
+}
+
+// 테스트 코드
+printGrade(25, 35);  // D
+printGrade(50, 45);  // A
+printGrade(29, 24);  // F
+printGrade(37, 42);  // C
+
+
+// 나의 나이와, 나의 성별을 저장하는 변수
+let myAge = 26;
+let myGender = 'male';
+
+// 호칭을 담은 변수
+let callOlderBrother = '형';
+let callOlderSister = '누나';
+let callFriend = '친구';
+let callYoungerSister = '여동생';
+let callYoungerBrother = '남동생';
+
+// 상대방의 나이와 성별에 따른 호칭을 리턴하는 함수 whatShouldICall
+function whatShouldICallYou(yourAge, yourGender) {
+  if (myAge == yourAge) {
+    return (callFriend);
+  }
+  else if(myAge >= yourAge && myGender == yourGender) {
+    return (callYoungerBrother);
+  }
+  else if(myAge >= yourAge && myGender != yourGender) {
+    return (callYoungerSister);
+  }
+  else if(myAge <= yourAge && myGender == yourGender) {
+    return (callOlderBrother);
+  }
+  else {
+    return (callOlderSister);
+  }
+}
+
+// 테스트 코드
+let result1 = whatShouldICallYou(25, 'female');
+let result2 = whatShouldICallYou(20, 'male');
+let result3 = whatShouldICallYou(26, 'female');
+let result4 = whatShouldICallYou(30, 'male');
+let result5 = whatShouldICallYou(31, 'female');
+
+console.log(result1);  // 여동생
+console.log(result2);  // 남동생
+console.log(result3);  // 친구
+console.log(result4);  // 형
+console.log(result5);  // 누나
+
+
+// 각 등급별 가격
+let VIPPrice = 15;
+let RPrice = 13;
+let SPrice = 10;
+let APrice = 8;
+
+// 각 등급에 맞는 가격을 출력하는 함수 checkPrice
+function checkPrice(grade) {
+	switch(grade) {
+    case 'R':
+      console.log(`${grade}석은 ${RPrice}만원 입니다.`);
+      break;
+    case 'VIP':
+      console.log(`${grade}석은 ${VIPPrice}만원 입니다.`);
+      break;
+    case 'S':
+      console.log(`${grade}석은 ${SPrice}만원 입니다.`);
+      break;
+    case 'A':
+      console.log(`${grade}석은 ${APrice}만원 입니다.`);
+      break;
+    default:
+      console.log('VIP, R, S, A 중에서 하나를 선택해주세요.')
+  }
+}
+
+// 테스트 코드
+checkPrice('R');  // R석은 13만원 입니다.
+checkPrice('VIP');  // VIP석은 15만원 입니다.
+checkPrice('S');  // S석은 10만원 입니다.
+checkPrice('A');  // A석은 8만원 입니다.
+checkPrice('B');  // VIP, R, S, A 중에서 하나를 선택해 주세요.
