@@ -182,3 +182,28 @@ printTriangle(3);
 
 console.log('높이: 5');
 printTriangle(5);
+
+
+// while 반복문을 통해 1~100 사이의 홀수를 출력
+let i = 1;
+
+while (i <= 100) {
+  console.log(i);
+  i += 2;
+}
+
+
+// while 반복문을 통해 180의 약수와, 그 개수를 계산하여 출력
+const N = 180;
+let j = 1;
+let count = 0;
+
+while (j <= N) {
+  if (N % j == 0) {
+    console.log(j)
+    count++;
+  }
+  j++;
+}
+
+console.log(`${N}의 약수는 총 ${count}개입니다.`)
