@@ -1,3 +1,4 @@
+
 // 직사각형 넓이를 계산하는 함수 작성하기
 function calculateRectangleArea(width,height) {
   return width * height;
@@ -207,3 +208,32 @@ while (j <= N) {
 }
 
 console.log(`${N}의 약수는 총 ${count}개입니다.`)
+
+
+
+// 빈 객체에 3가지 메소드(단어 추가, 단어 삭제, 단어 출력) 만들기
+let myVoca = {
+  addVoca: function (key, value) { // addVoca라는 이름의 프로퍼티에다가, 프로퍼티 값으로 myVoca객체에 새로운 프로퍼티를 추가하는 동작을 가진 함수를 선언
+    myVoca[key] = value;  //  파라미터로 다른 변수에 담긴 값을 가져올 때는 대괄호 표기법을 사용
+  },
+  deleteVoca: function(key) {  //  myVoca객체에 있던 프로퍼티를 삭제하는 동작을 가진 함수를 선언
+    delete myVoca[key];
+  },
+  printVoca: function(x) {  // 프로퍼티 값을 조합해서 특별한 포맷을 갖춘 문자열로 출력하는 메소드
+    console.log(`"${x}"의 뜻은 "${myVoca[x]}"입니다.`)
+  }
+};
+
+// addVoca메소드 테스트 코드
+myVoca.addVoca('parameter', '매개 변수');
+myVoca.addVoca('element', '요소');
+myVoca.addVoca('property', '속성');
+console.log(myVoca);
+
+// deleteVoca메소드 테스트 코드
+myVoca.deleteVoca('parameter');
+myVoca.deleteVoca('element');
+console.log(myVoca);
+
+// printVoca메소드 테스트 코드
+myVoca.printVoca('property');  // "property"의 뜻은 "속성"입니다.
