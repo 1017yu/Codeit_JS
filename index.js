@@ -224,6 +224,7 @@ let myVoca = {
   }
 };
 
+
 // addVoca메소드 테스트 코드
 myVoca.addVoca('parameter', '매개 변수');
 myVoca.addVoca('element', '요소');
@@ -237,3 +238,16 @@ console.log(myVoca);
 
 // printVoca메소드 테스트 코드
 myVoca.printVoca('property');  // "property"의 뜻은 "속성"입니다.
+
+
+// 나의 코딩 공부 기간을 계산하는 코드
+let start = new Date(2021, 5, 1);  // 공부를 시작한 날짜
+
+function studyDayCalc(start) {  // 공부한 기간을 도출하는 함수 선언
+  let timeDiff = Date.now() - start.getTime();  // 날짜의 차이를 저장할 변수 선언
+  let dayDiff = timeDiff / 1000 / 60 / 60 / 24;  // ms를 day 단위로 변환
+  
+  console.log(`오늘은 공부한 지 ${parseInt(dayDiff) + 1}일째 되는 날 입니다.`);  // parseInt로 소수점 이하는 버림
+}
+
+studyDayCalc(start);
