@@ -225,18 +225,18 @@ let myVoca = {
 };
 
 
-// addVoca메소드 테스트 코드
+// addVoca 메소드 테스트 코드
 myVoca.addVoca('parameter', '매개 변수');
 myVoca.addVoca('element', '요소');
 myVoca.addVoca('property', '속성');
 console.log(myVoca);
 
-// deleteVoca메소드 테스트 코드
+// deleteVoca 메소드 테스트 코드
 myVoca.deleteVoca('parameter');
 myVoca.deleteVoca('element');
 console.log(myVoca);
 
-// printVoca메소드 테스트 코드
+// printVoca 메소드 테스트 코드
 myVoca.printVoca('property');  // "property"의 뜻은 "속성"입니다.
 
 
