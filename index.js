@@ -295,3 +295,16 @@ console.log(ages[ages.length - 1]);
 console.log(ages[3]);
 console.log(numbers[3]);
 console.log(numbers);
+
+
+// 이율이 4.3%인 2년 만기 적금의 이자 계산해보기
+function interestCalculator(rate, payment, term) {
+  interest = (payment * term * (term + 1) / 2 * rate / 12);  // interest(이자) 변수에 값을 저장
+  console.log(Math.round(interest));  // interest를 반올림하여 출력
+}
+
+// 이율이 4.3%일 때 매월 80만원씩 24개월 납입할 경우
+interestCalculator(0.043, 800000, 24);  // 860000
+
+// 이율이 4.3%일 때 매월 60만원씩 24개월 납입할 경우
+interestCalculator(0.043, 600000, 24);  // 645000
