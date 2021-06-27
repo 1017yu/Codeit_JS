@@ -363,3 +363,96 @@ course3.title = '객체 지향 프로그래밍';  // course3의 title 키 값 �
 console.log(course1);  // {title: "자바스크립트 기초". language: "Javascript"}
 console.log(course2);  // {title: "알고리즘의 정석". language: "Javascript"}
 console.log(course3);  // {title: "객체 지향 프로그래밍". language: "Javascript"}
+
+
+// 참조형 실습해보기
+// 객체와 배열은 변수에 할당할 때 해당 값이 직접 저장되는 것이 아니라, 주소 값이 저장이 되는 참조형(Reference Type)임을 생각하기
+let espresso = ['espresso'];
+
+//slice 메소드를 호출할 때 파라미터로 아무런 값도 전달하지 않을 경우에 배열 전체를 그대로 리턴하는 메소드의 특징을 활용
+let americano = espresso.slice();
+americano.push('water');  // push 메소드를 통해 'water'를 배열 맨 뒤에 추가
+
+let caffeLatte = espresso.slice();
+caffeLatte.push('milk');
+
+// 테스트 코드
+console.log(espresso);  // [ 'espresso' ]
+console.log(americano);  // [ 'espresso', 'water' ]
+console.log(caffeLatte);  // [ 'espresso', 'milk' ]
+
+
+// 팩토리얼 함수 만들기
+function factorial(n) {
+  let result = 1;  // 0! = 1 초기화
+
+	for (let i = 1; i <= n; i++) {   // n이 1 이상일 때 for 반복문을 통해 팩토리얼 계산하기(1)
+    result = result * i;
+  }
+
+  /* for (let i = n; i >= 1; i--) {  // i를 n부터 시작해서 1이 될 때까지 for 반복문을 통해 팩토리얼 계산하기(2)
+    result = result + i;
+  }
+  */
+
+  return result;
+}
+
+// 테스트 코드
+console.log(factorial(12));  // 479001600
+console.log(factorial(6));  // 720
+console.log(factorial(3));  // 6
+console.log(factorial(0));  // 1
+
+
+// 거스름돈 구하기
+function calculateChange(payment, cost) {
+  let change = payment - cost;
+  let fiftyCount = Math.floor(change / 50000);
+  let tenCount = Math.floor((change % 50000) / 10000);
+  let fiveCount = Math.floor(((change % 50000) % 10000) / 5000);
+  let oneCount = Math.floor((((change % 50000) % 10000) % 5000) / 1000);
+
+  console.log(`50000원 지폐: ${fiftyCount}장`);
+  console.log(`10000원 지폐: ${tenCount}장`);
+  console.log(`5000원 지폐: ${fiveCount}장`);
+  console.log(`1000원 지폐: ${oneCount}장`);
+}
+
+// 테스트 코드
+calculateChange(100000, 33000);
+/* 
+50000원 지폐: 1장
+10000원 지폐: 1장
+5000원 지폐: 1장
+1000원 지폐: 2장 */
+
+calculateChange(500000, 378000);
+/*
+50000원 지폐: 2장
+10000원 지폐: 2장
+5000원 지폐: 0장
+1000원 지폐: 2장 */
+
+
+// 팰린드롬 (Palindrome)
+// 첫번쩨 원소의 인덱스는 0, 마지막 원소의 인덱스는 word.length - 1 임을 이용
+function isPalindrome(word) {
+  for (let i = 0; i < Math.floor(word.length / 2); i++) {  // 반대쪽과 비교하는 동작이므로 배열 길이의 절반까지만 반복해도 가능
+    let left = word[i];
+    let right = word[word.length - 1 - i];
+
+    if (left !== right) {  // 양 끝 원소가 서로 다를 경우 false를 리턴
+      return false;
+    }
+  }
+  return true;  // for 반복문을 반복할 동안, 비교원소가 모두 같을 경우 true를 리턴
+}
+
+// 테스트 코드
+console.log(isPalindrome("racecar"));  // true
+console.log(isPalindrome("stars"));  // false
+console.log(isPalindrome("기러기"));  // true
+console.log(isPalindrome("123321"));  // true
+console.log(isPalindrome("hello"));  // false
+console.log(isPalindrome("kayak"));  // true
