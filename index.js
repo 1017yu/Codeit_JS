@@ -299,7 +299,8 @@ console.log(numbers);
 
 // 이율이 4.3%인 2년 만기 적금의 이자 계산해보기
 function interestCalculator(rate, payment, term) {
-  interest = (payment * term * (term + 1) / 2 * rate / 12);  // interest(이자) 변수에 값을 저장
+  let interest = (payment * term * (term + 1) / 2 * rate / 12);  // interest(이자) 변수에 값을 저장
+  //let interest = +(payment * term * (term + 1) / 2 * rate / 12).toFixed();  // toFixed 메소드를 사용하여 어림수를 만들고, +를 이용하여 숫자형으로 형변환
   console.log(Math.round(interest));  // interest를 반올림하여 출력
 }
 
@@ -308,3 +309,57 @@ interestCalculator(0.043, 800000, 24);  // 860000
 
 // 이율이 4.3%일 때 매월 60만원씩 24개월 납입할 경우
 interestCalculator(0.043, 600000, 24);  // 645000
+
+
+// 문자열 심화
+let myString = 'Hi Codeit';
+
+// 대소문자 변환
+console.log(myString.toUpperCase());  // 대문자
+console.log(myString.toLowerCase());  // 소문자
+
+// 요소 탐색
+console.log(myString.indexOf('a'));  // 앞 부터 탐색
+console.log(myString.lastIndexOf('i'));  // 뒤 부터 탐색
+
+// 요소 접근
+console.log(myString[3]);  // 대괄호 표기법
+console.log(myString.charAt(3));  // charAt 메소드
+
+// 문자열 길이
+console.log(myString.length);  // length 프로퍼티
+
+// 양 끝 공백 제거
+console.log(myString.trim());  // trim 메소드
+
+// 부분 문자열 접근 slice(start, end)
+console.log(myString.slice(0,2));  // Hi
+console.log(myString.slice(3));  // Codeit
+console.log(myString.slice());  // Hi Codeit
+
+
+//  참조형 복사하기 (Reference Type Copy)
+function cloneObject(object) {  // 객체형을 복사하는 함수 생성
+  let temp = {};
+
+  for (let key in object) {
+    temp[key] = object[key];
+  }
+
+  return temp;
+};
+
+let course1 = {  // course1 객체 생성
+  title: '자바스크립트 기초',
+  language: 'JavaScript'
+};
+
+let course2 = cloneObject(course1);  // course2에 course1 복사
+let course3 = cloneObject(course1);  // course3에 course1 복사
+
+course2.title = '알고리즘의 정석';  // course2의 title 키 값 변경
+course3.title = '객체 지향 프로그래밍';  // course3의 title 키 값 변경
+
+console.log(course1);  // {title: "자바스크립트 기초". language: "Javascript"}
+console.log(course2);  // {title: "알고리즘의 정석". language: "Javascript"}
+console.log(course3);  // {title: "객체 지향 프로그래밍". language: "Javascript"}
